@@ -33,10 +33,10 @@ const Logo = () => {
 const Nav = () => {
   return (
     <div className='hidden md:flex items-center'>
-      <a href='#' className='font-semibold py-2 px-3 hover:text-white'>
+      <a href='#' className='font-semibold py-2 px-3 hover:text-purple-200'>
         Docs
       </a>
-      <a href='#' className='font-semibold py-2 px-3 hover:text-white'>
+      <a href='#' className='font-semibold py-2 px-3 hover:text-purple-200'>
         DashBoard
       </a>
     </div>
