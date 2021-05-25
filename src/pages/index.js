@@ -2,8 +2,10 @@ import matter from 'gray-matter';
 import fs from 'fs';
 import path from 'path';
 import Hero from '../components/Hero';
+import AppPreview from '../components/AppPreview';
 
-export default function Home({ posts }) {
+export default function Home({ apps }) {
+  console.log(apps);
 
   return (
     <>
@@ -15,12 +17,10 @@ export default function Home({ posts }) {
         <div className='max-w-7xl mx-auto px-8 space-y-8'>
           <h2 className='text-4xl font-bold'>Sample project</h2>
 
-          <div className='grid grid-cols-3'>
+          <div className='grid grid-cols-3 gap-5'>
 
-            {posts.map((post, index) => (
-              <div key={index}>
-                {post.data.title}
-              </div>
+            {apps.map((app, index) => (
+              <AppPreview key={index} app={app} />
             ))}
           </div>
         </div>
@@ -32,16 +32,16 @@ export default function Home({ posts }) {
 
 export function getStaticProps() {
 
-  const postsPath = path.join(process.cwd(), 'posts');
+  const appsPath = path.join(process.cwd(), 'apps');
 
   // return array 
-  const postsFilePaths = fs.readdirSync(postsPath).filter(path => /\.mdx?$/.test(path));
+  const appsFilePaths = fs.readdirSync(appsPath).filter(path => /\.mdx?$/.test(path));
 
-  const posts = postsFilePaths.map(filePath => {
-    const source = fs.readFileSync(path.join(postsPath, filePath));
+  const apps = appsFilePaths.map(filePath => {
+    const source = fs.readFileSync(path.join(appsPath, filePath));
     const { content, data } = matter(source);
     return { content, data, filePath };
   });
 
-  return { props: { posts } };
+  return { props: { apps } };
 };
