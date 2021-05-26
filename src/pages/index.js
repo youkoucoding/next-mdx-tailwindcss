@@ -5,7 +5,6 @@ import Hero from '../components/Hero';
 import AppPreview from '../components/AppPreview';
 
 export default function Home({ apps }) {
-  console.log(apps);
 
   return (
     <>
