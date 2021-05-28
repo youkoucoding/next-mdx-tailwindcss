@@ -6,7 +6,14 @@ import matter from 'gray-matter';
 const App = ({ app }) => {
 
   return (
-    <div>Apps goes here.</div>
+    <div className='h-full max-w-4xl mx-auto flex flex-col items-center justify-center'>
+      <p className='text-2xl font-bold font-serif p-8'>
+        Apps goes here.
+      </p>
+      <article className="prose prose-xl prose-green">
+        {app.content}
+      </article>
+    </div>
   );
 };
 
@@ -40,7 +47,6 @@ export async function getStaticProps({ params }) {
 
   const source = fs.readFileSync(appFilePath);
   const { content, data } = matter(source);
-  // get a single page
 
   return {
     props: {

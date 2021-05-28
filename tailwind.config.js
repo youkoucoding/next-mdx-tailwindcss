@@ -10,5 +10,7 @@ module.exports = {
       translate: ['active', 'group-hover'],
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };

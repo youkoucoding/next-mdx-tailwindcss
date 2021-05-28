@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import Hero from '../components/Hero';
 import AppPreview from '../components/AppPreview';
+import HelloWorld from '../components/HelloWorld.mdx';
 
 export default function Home({ apps }) {
 
@@ -12,7 +13,7 @@ export default function Home({ apps }) {
         <Hero />
       </div>
       {/* show samples in grid */}
-      <div className='bg-gray-100 py-20'>
+      <div className='bg-gray-100 py-20 h-5/6'>
         <div className='max-w-7xl mx-auto px-8 space-y-8'>
           <h2 className='text-4xl font-bold'>Sample project</h2>
 
@@ -21,6 +22,9 @@ export default function Home({ apps }) {
             {apps.map((app, index) => (
               <AppPreview key={index} app={app} />
             ))}
+          </div>
+          <div className="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto">
+            <HelloWorld />
           </div>
         </div>
       </div>
